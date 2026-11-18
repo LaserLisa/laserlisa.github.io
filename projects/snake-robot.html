@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake-like Robot — Lisa Schneider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container">
+      <a class="brand" href="../index.html">Lisa Schneider</a>
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#publications">Publications</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="detail-hero">
+      <a class="back" href="../index.html#projects">&lt;&lt; Back to projects</a>
+      <h1>Undulatory Snake-like Robot</h1>
+      <p class="subtitle">MSc Thesis · Tohoku University, Japan · 03/2026 – 09/2026</p>
+    </header>
+
+    <figure class="detail-cover">
+      <img src="../assets/img/projects/snake-robot.svg" alt="Snake-like robot (placeholder)">
+    </figure>
+
+    <section class="detail-content">
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Master thesis, neuromechanical robotics</dd></div>
+        <div><dt>Where</dt><dd>Tohoku University, Japan</dd></div>
+        <div><dt>When</dt><dd>March – September 2026</dd></div>
+        <div><dt>My role</dt><dd>Full-stack: mechanics, electronics, firmware, simulation, experiments</dd></div>
+      </dl>
+
+      <h2>Overview</h2>
+      <p>
+        <em>Design and Evaluation of an Undulatory Robot Driven by CPG-Based Control with Local
+        Shear-Force Sensing.</em> The thesis investigates how local sensory feedback can make
+        undulatory (snake-like) locomotion adaptive. I designed and built a 10-segment planar
+        robot with one passive degree of freedom per segment, controlled by central pattern
+        generators and equipped with shear-force sensors in every segment.
+      </p>
+      <!-- TODO: expand with motivation, research question and key results -->
+
+      <h2>What I did</h2>
+      <ul>
+        <li><strong>Mechanical design</strong> of the 10-segment planar robot with a passive DoF per segment in Fusion360.</li>
+        <li><strong>PCB design</strong> in KiCad of an ESP32 header board connecting up to 15 motors and analog sensors.</li>
+        <li><strong>Custom sensor board</strong> for each segment to measure local shear forces.</li>
+        <li><strong>Control</strong> of the robot using central pattern generators (CPGs) implemented in ESP-IDF.</li>
+        <li><strong>Simulation</strong> of the robot in MuJoCo using Python.</li>
+        <li><strong>Experiments:</strong> design, execution and evaluation of experiments studying adaptive behaviour in undulatory motion.</li>
+      </ul>
+
+      <h2>Results</h2>
+      <p>
+        <!-- TODO: describe the main findings, add plots or videos -->
+        Summary of the key results goes here.
+      </p>
+
+      <h2>Tools &amp; Skills</h2>
+      <ul class="tags">
+        <li>Fusion360</li><li>KiCad</li><li>ESP32 / ESP-IDF</li><li>C</li>
+        <li>CPG control</li><li>MuJoCo</li><li>Python</li><li>Experiment design</li>
+      </ul>
+
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <figure><img src="../assets/img/projects/snake-robot-1.svg" alt="Placeholder"><figcaption>CAD model</figcaption></figure>
+        <figure><img src="../assets/img/projects/snake-robot-2.svg" alt="Placeholder"><figcaption>Sensor board PCB</figcaption></figure>
+        <figure><img src="../assets/img/projects/snake-robot-3.svg" alt="Placeholder"><figcaption>Experiment setup</figcaption></figure>
+      </div>
+
+      <nav class="project-pager">
+        <a href="../index.html#projects">&lt;&lt; All projects</a>
+        <a href="robot-competition.html">Next: EPFL Robot Competition &gt;&gt;</a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container">© 2026 Lisa Schneider</div></footer>
+</body>
+</html>

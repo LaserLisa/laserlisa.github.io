@@ -1,0 +1,5 @@
+# Local working files (not part of the site)
+desired_design_*.png
+instructions.txt
+# Private CV with home address / phone — publish a redacted copy in assets/files/ instead
+/CV_Lisa_Schneider.pdf
