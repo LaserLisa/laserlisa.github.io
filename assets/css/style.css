@@ -176,7 +176,8 @@ h1, h2, h3, h4 {
   gap: 48px;
   align-items: start;
 }
-.project-body img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+/* Images keep their natural aspect ratio (never cropped); very tall ones are capped */
+.project-body img { width: 100%; height: auto; max-height: 440px; object-fit: contain; }
 
 .project-text h4 { font-family: var(--font-body); font-size: 1.3rem; margin: 0 0 4px; }
 .project-text p  { margin: 0 0 28px; }
@@ -187,6 +188,8 @@ h1, h2, h3, h4 {
 .pub-list { list-style: none; padding: 0; margin: 0 0 32px; }
 .pub-list li { margin-bottom: 18px; font-size: 1.1rem; }
 .pub-list em { font-style: italic; }
+.pub-list a { text-decoration: none; }
+.pub-list a:hover em { text-decoration: underline; }
 .pub-list .venue { font-weight: 700; }
 
 /* ---------- Detail pages ---------- */
