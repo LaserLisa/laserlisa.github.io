@@ -114,6 +114,7 @@ h1, h2, h3, h4 {
   width: 300px;
   height: 300px;
   object-fit: cover;
+  object-position: 50% 0%; /* anchor crop to the top so the whole head is visible */
   border-radius: 34%;
   margin: 0 auto 40px;
 }
