@@ -2,7 +2,7 @@
 
 Engineering portfolio of Lisa Schneider, served by GitHub Pages at https://laserlisa.github.io
 
-Plain HTML + CSS — no build step.
+Plain HTML + CSS + a little JavaScript — no build step.
 
 ```
 index.html                 About / Projects / Publications (single landing page)
@@ -12,6 +12,7 @@ projects/                  One detail page per project ("Detailed Description >>
   z-bot.html
   solar-boat.html
 assets/css/style.css       All styling
+assets/js/gallery.js       Image slider + full-screen zoom on the detail pages
 assets/img/profile.svg     Profile picture placeholder
 assets/img/projects/       Project images: <project>.svg (card/cover) and <project>-1..3.svg (gallery)
 assets/files/              Downloadable files, e.g. CV_Lisa_Schneider.pdf (Resume button)

@@ -227,22 +227,117 @@ h1, h2, h3, h4 {
 .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0 !important; }
 .tags li { background: var(--dark); color: #fff; padding: 4px 12px; font-size: .9rem; margin: 0; }
 
+/* Slider: arrows and full-screen viewer are added by assets/js/gallery.js */
+.gallery-slider { position: relative; margin-top: 16px; }
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  --per-view: 2; /* images visible at once */
+  --gap: 20px;
+  position: relative;
+  display: flex;
+  gap: var(--gap);
   margin-top: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
-.gallery figure { margin: 0; }
+.gallery::-webkit-scrollbar { display: none; }
+.gallery-slider .gallery { margin-top: 0; }
+.gallery figure {
+  flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+}
 /* Uniform frames; images of any aspect ratio are shown whole (letterboxed), never cropped */
 .gallery img {
   width: 100%;
-  height: 300px;
+  height: 360px;
   object-fit: contain;
   background: #f4f4f4;
   padding: 10px;
 }
 .gallery figcaption { font-size: .9rem; color: var(--muted); margin-top: 6px; }
+.gallery-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.gallery-open:focus-visible { outline: 3px solid var(--dark); outline-offset: -3px; }
+
+.gallery-arrow {
+  position: absolute;
+  top: 180px; /* middle of the image frames */
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  padding: 0 0 5px;
+  border: 0;
+  background: var(--dark);
+  color: #fff;
+  font: 700 2rem/1 var(--font-head);
+  cursor: pointer;
+  transition: background .15s ease, opacity .15s ease;
+}
+.gallery-arrow.prev { left: 0; }
+.gallery-arrow.next { right: 0; }
+.gallery-arrow:hover { background: #000; }
+.gallery-arrow:disabled { opacity: .25; cursor: default; }
+.gallery-arrow[hidden] { display: none; }
+
+/* ---------- Full-screen image viewer ---------- */
+html:has(.lightbox[open]) { overflow: hidden; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: #fff; /* light, as several images have transparent backgrounds */
+  color: var(--text);
+}
+.lightbox[open] { display: flex; flex-direction: column; }
+.lightbox-stage {
+  flex: 1;
+  min-height: 0;
+  margin-top: 60px;
+  overflow: hidden;
+  cursor: zoom-in;
+  touch-action: none;
+  user-select: none;
+}
+.lightbox-stage.zoomed { cursor: grab; }
+.lightbox-stage.zoomed:active { cursor: grabbing; }
+.lightbox-stage img { width: 100%; height: 100%; object-fit: contain; }
+.lightbox-caption {
+  margin: 0;
+  padding: 12px 16px;
+  text-align: center;
+  color: var(--muted);
+}
+.lightbox-bar { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; }
+.lightbox-bar button {
+  min-width: 44px;
+  height: 44px;
+  border: 0;
+  background: var(--dark);
+  color: #fff;
+  font: 700 1.4rem/1 var(--font-head);
+  cursor: pointer;
+}
+.lightbox-bar .zoom-level { min-width: 72px; font-size: .95rem; }
+.lightbox-bar button:hover { background: #000; }
+.lightbox-bar button:disabled { opacity: .35; cursor: default; }
+.lightbox .gallery-arrow { top: 50%; }
+.lightbox button:focus-visible,
+.gallery-arrow:focus-visible { outline: 3px solid #6aa5ff; outline-offset: -3px; }
 
 .project-pager {
   display: flex;
@@ -283,6 +378,7 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 520px) {
+  .gallery { --per-view: 1; }
   body { font-size: 16px; }
   .container { padding: 0 16px; }
   .profile-pic { width: 220px; height: 220px; }
